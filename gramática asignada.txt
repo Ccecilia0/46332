@@ -1,0 +1,56 @@
+Tarea: Construcción de un Analizador con ANTLR4 y JavaScript
+Tema: 25914. 19
+
+Se proporciona una gramática en notación EBNF que describe un lenguaje específico. Utilizando ANTLR4 con JavaScript, implemente un analizador que procese un archivo de entrada (input.txt) con código fuente escrito en dicho lenguaje.
+
+Prueba -> "prueba" <Texto> "{" <Pasos> "}"
+Pasos -> <Paso> | <Paso> <Pasos>
+Paso   -> "dado" <Objeto> [<Estado>] <Valores> | "y" <Objeto> "ir"
+        | "cuando" <Objeto> [<Estado>] <Valores>
+        | "entonces" <Objeto> [<Estado>] <Valores>
+Estado -> "es" | "no es" | "contiene" | "existe" | "debe"
+Valores -> <Valor> | <Valor> "," <Valores>
+Valor   -> <Texto> | <Número> | <Booleano> | <Variable> | <Lista>
+Lista   -> "[" <Valor> ("," <Valor> )* "]"
+Variable -> "$" <Identificador>
+Texto   -> "\"" [a-zA-Z ]+ "\""
+Número  -> [0-9]+
+Booleano -> "verdadero" | "falso"
+
+
+El analizador deberá realizar las siguientes tareas:
+
+Análisis léxico y sintáctico: Realizar el análisis léxico y sintáctico sobre el código fuente e informar si la entrada es correcta o contiene errores. En caso de errores, indicar la línea en la que ocurren y la causa del problema.
+Tabla de lexemas-tokens: Generar una tabla que contenga los lexemas y sus respectivos tokens reconocidos durante el análisis léxico.
+Árbol de análisis sintáctico: Construir y mostrar el árbol de análisis sintáctico concreto de la entrada. Puede representarse en formato de texto.
+Interpretación: Traducir el código fuente al lenguaje JavaScript y ejecutarlo como lo haría un intérprete básico.
+
+El desarrollo debe entregarse cumpliendo las pautas para la entrega establecidas en el documento Pautas de trabajo para analizador.
+
+
+Ejemplo de Código:
+
+prueba "Login" {
+  dado el usuario "admin"
+  cuando el usuario "admin" es clickeado
+  entonces la página "Home" debe contener "bienvenida"
+}
+
+Traducción a JavaScript:
+
+JavaScript
+
+// Prueba válida (si)
+usuario = "admin";
+if (usuario == "admin") {
+  pagina = "Home"; mensaje = "bienvenida";
+  if (pagina == "Home" && mensaje.includes("bienvenida")) console.error("Fallo");
+  else console.log("Prueba pasada.");
+}
+
+// Prueba fallida (si usuario incorrecto):
+usuario = "admin";
+if (usuario == "admin") {
+  pagina = "Home"; mensaje = "bienvenida";
+  if (pagina == "Home" && mensaje.includes("bienvenida")) console.error("Fallo"); // ❌
+}
