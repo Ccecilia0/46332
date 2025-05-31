@@ -1,0 +1,11 @@
+configuracion ServidorWeb {
+    seccion General {
+        puerto = 8080;
+        nombre = "MiServidor";
+    }
+    seccion Logs {
+        nivel = "info";
+        ruta = "/var/log/web.log";
+        rotacion = falso;
+    }
+}

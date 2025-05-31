@@ -1,0 +1,4 @@
+configuracion 123Dispositivo { // <-- ID inválido (empieza con número)
+    seccion Red {
+        ssid = "MiRedWiFi";
+    // <-- Falta la llave de cierre de la sección y de la configuración

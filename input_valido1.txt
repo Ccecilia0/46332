@@ -1,5 +1,7 @@
 configuracion MiDispositivo {
     seccion Red {
         ssid = "MiRedWiFi";
+        canal = 11;
+        habilitado = verdadero;
     }
 }
