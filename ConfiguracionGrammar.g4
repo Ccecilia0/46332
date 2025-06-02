@@ -1,27 +1,36 @@
 grammar ConfiguracionGrammar;
 
 configuracion
-    : 'configuracion' ID '{' secciones '}' ;
+    : CONFIG ID LLAVE_ABIERTA secciones LLAVE_CERRADA ;
 
 secciones
     : (seccion)* ;
 
 seccion
-    : 'seccion' ID '{' parametros '}' ;
+    : SECCION ID LLAVE_ABIERTA parametros LLAVE_CERRADA ;
 
 parametros
     : (parametro)* ;
 
 parametro
-    : ID '=' valor ';' ;
+    : ID IGUAL valor PUNTO_Y_COMA ;
 
 valor
     : NUM
     | CADENA
     | BOOLEANO ;
 
-BOOLEANO : 'verdadero' | 'falso' ;
-CADENA   : '"' ( ~["\\] | '\\' . )* '"' ;
-ID       : [a-zA-Z] [a-zA-Z0-9]* ;
-NUM      : [0-9]+ ;
-WS       : [ \t\r\n]+ -> skip ;
+// TOKENS LÉXICOS
+CONFIG         : 'configuracion' ;
+SECCION        : 'seccion' ;
+BOOLEANO       : 'verdadero' | 'falso' ;
+CADENA         : '"' ( ~["\\] | '\\' . )* '"' ;
+ID             : [a-zA-Z] [a-zA-Z0-9]* ;
+NUM            : [0-9]+ ;
+
+LLAVE_ABIERTA  : '{' ;
+LLAVE_CERRADA  : '}' ;
+IGUAL          : '=' ;
+PUNTO_Y_COMA   : ';' ;
+
+WS             : [ \t\r\n]+ -> skip ;

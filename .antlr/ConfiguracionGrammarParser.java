@@ -1,4 +1,4 @@
-// Generated from /Users/ceciliacalvo/ssl-antlr-calculator/ConfiguracionGrammar.g4 by ANTLR 4.13.1
+// Generated from /Users/ceciliacalvo/ssl-antlr-config/ConfiguracionGrammar.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -16,8 +16,8 @@ public class ConfiguracionGrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, BOOLEANO=7, CADENA=8, 
-		ID=9, NUM=10, WS=11;
+		CONFIG=1, SECCION=2, BOOLEANO=3, CADENA=4, ID=5, NUM=6, LLAVE_ABIERTA=7, 
+		LLAVE_CERRADA=8, IGUAL=9, PUNTO_Y_COMA=10, WS=11;
 	public static final int
 		RULE_configuracion = 0, RULE_secciones = 1, RULE_seccion = 2, RULE_parametros = 3, 
 		RULE_parametro = 4, RULE_valor = 5;
@@ -30,14 +30,15 @@ public class ConfiguracionGrammarParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'configuracion'", "'{'", "'}'", "'seccion'", "'='", "';'"
+			null, "'configuracion'", "'seccion'", null, null, null, null, "'{'", 
+			"'}'", "'='", "';'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, "BOOLEANO", "CADENA", "ID", 
-			"NUM", "WS"
+			null, "CONFIG", "SECCION", "BOOLEANO", "CADENA", "ID", "NUM", "LLAVE_ABIERTA", 
+			"LLAVE_CERRADA", "IGUAL", "PUNTO_Y_COMA", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -93,10 +94,13 @@ public class ConfiguracionGrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ConfiguracionContext extends ParserRuleContext {
+		public TerminalNode CONFIG() { return getToken(ConfiguracionGrammarParser.CONFIG, 0); }
 		public TerminalNode ID() { return getToken(ConfiguracionGrammarParser.ID, 0); }
+		public TerminalNode LLAVE_ABIERTA() { return getToken(ConfiguracionGrammarParser.LLAVE_ABIERTA, 0); }
 		public SeccionesContext secciones() {
 			return getRuleContext(SeccionesContext.class,0);
 		}
+		public TerminalNode LLAVE_CERRADA() { return getToken(ConfiguracionGrammarParser.LLAVE_CERRADA, 0); }
 		public ConfiguracionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -110,15 +114,15 @@ public class ConfiguracionGrammarParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(12);
-			match(T__0);
+			match(CONFIG);
 			setState(13);
 			match(ID);
 			setState(14);
-			match(T__1);
+			match(LLAVE_ABIERTA);
 			setState(15);
 			secciones();
 			setState(16);
-			match(T__2);
+			match(LLAVE_CERRADA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -156,7 +160,7 @@ public class ConfiguracionGrammarParser extends Parser {
 			setState(21);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__3) {
+			while (_la==SECCION) {
 				{
 				{
 				setState(18);
@@ -182,10 +186,13 @@ public class ConfiguracionGrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class SeccionContext extends ParserRuleContext {
+		public TerminalNode SECCION() { return getToken(ConfiguracionGrammarParser.SECCION, 0); }
 		public TerminalNode ID() { return getToken(ConfiguracionGrammarParser.ID, 0); }
+		public TerminalNode LLAVE_ABIERTA() { return getToken(ConfiguracionGrammarParser.LLAVE_ABIERTA, 0); }
 		public ParametrosContext parametros() {
 			return getRuleContext(ParametrosContext.class,0);
 		}
+		public TerminalNode LLAVE_CERRADA() { return getToken(ConfiguracionGrammarParser.LLAVE_CERRADA, 0); }
 		public SeccionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -199,15 +206,15 @@ public class ConfiguracionGrammarParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(24);
-			match(T__3);
+			match(SECCION);
 			setState(25);
 			match(ID);
 			setState(26);
-			match(T__1);
+			match(LLAVE_ABIERTA);
 			setState(27);
 			parametros();
 			setState(28);
-			match(T__2);
+			match(LLAVE_CERRADA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -272,9 +279,11 @@ public class ConfiguracionGrammarParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParametroContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(ConfiguracionGrammarParser.ID, 0); }
+		public TerminalNode IGUAL() { return getToken(ConfiguracionGrammarParser.IGUAL, 0); }
 		public ValorContext valor() {
 			return getRuleContext(ValorContext.class,0);
 		}
+		public TerminalNode PUNTO_Y_COMA() { return getToken(ConfiguracionGrammarParser.PUNTO_Y_COMA, 0); }
 		public ParametroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -290,11 +299,11 @@ public class ConfiguracionGrammarParser extends Parser {
 			setState(36);
 			match(ID);
 			setState(37);
-			match(T__4);
+			match(IGUAL);
 			setState(38);
 			valor();
 			setState(39);
-			match(T__5);
+			match(PUNTO_Y_COMA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -328,7 +337,7 @@ public class ConfiguracionGrammarParser extends Parser {
 			{
 			setState(41);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1408L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 88L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -358,25 +367,25 @@ public class ConfiguracionGrammarParser extends Parser {
 		"\u0001\u0002\u0001\u0003\u0005\u0003 \b\u0003\n\u0003\f\u0003#\t\u0003"+
 		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005"+
 		"\u0001\u0005\u0001\u0005\u0000\u0000\u0006\u0000\u0002\u0004\u0006\b\n"+
-		"\u0000\u0001\u0002\u0000\u0007\b\n\n\'\u0000\f\u0001\u0000\u0000\u0000"+
-		"\u0002\u0015\u0001\u0000\u0000\u0000\u0004\u0018\u0001\u0000\u0000\u0000"+
-		"\u0006!\u0001\u0000\u0000\u0000\b$\u0001\u0000\u0000\u0000\n)\u0001\u0000"+
-		"\u0000\u0000\f\r\u0005\u0001\u0000\u0000\r\u000e\u0005\t\u0000\u0000\u000e"+
-		"\u000f\u0005\u0002\u0000\u0000\u000f\u0010\u0003\u0002\u0001\u0000\u0010"+
-		"\u0011\u0005\u0003\u0000\u0000\u0011\u0001\u0001\u0000\u0000\u0000\u0012"+
-		"\u0014\u0003\u0004\u0002\u0000\u0013\u0012\u0001\u0000\u0000\u0000\u0014"+
-		"\u0017\u0001\u0000\u0000\u0000\u0015\u0013\u0001\u0000\u0000\u0000\u0015"+
-		"\u0016\u0001\u0000\u0000\u0000\u0016\u0003\u0001\u0000\u0000\u0000\u0017"+
-		"\u0015\u0001\u0000\u0000\u0000\u0018\u0019\u0005\u0004\u0000\u0000\u0019"+
-		"\u001a\u0005\t\u0000\u0000\u001a\u001b\u0005\u0002\u0000\u0000\u001b\u001c"+
-		"\u0003\u0006\u0003\u0000\u001c\u001d\u0005\u0003\u0000\u0000\u001d\u0005"+
-		"\u0001\u0000\u0000\u0000\u001e \u0003\b\u0004\u0000\u001f\u001e\u0001"+
-		"\u0000\u0000\u0000 #\u0001\u0000\u0000\u0000!\u001f\u0001\u0000\u0000"+
-		"\u0000!\"\u0001\u0000\u0000\u0000\"\u0007\u0001\u0000\u0000\u0000#!\u0001"+
-		"\u0000\u0000\u0000$%\u0005\t\u0000\u0000%&\u0005\u0005\u0000\u0000&\'"+
-		"\u0003\n\u0005\u0000\'(\u0005\u0006\u0000\u0000(\t\u0001\u0000\u0000\u0000"+
-		")*\u0007\u0000\u0000\u0000*\u000b\u0001\u0000\u0000\u0000\u0002\u0015"+
-		"!";
+		"\u0000\u0001\u0002\u0000\u0003\u0004\u0006\u0006\'\u0000\f\u0001\u0000"+
+		"\u0000\u0000\u0002\u0015\u0001\u0000\u0000\u0000\u0004\u0018\u0001\u0000"+
+		"\u0000\u0000\u0006!\u0001\u0000\u0000\u0000\b$\u0001\u0000\u0000\u0000"+
+		"\n)\u0001\u0000\u0000\u0000\f\r\u0005\u0001\u0000\u0000\r\u000e\u0005"+
+		"\u0005\u0000\u0000\u000e\u000f\u0005\u0007\u0000\u0000\u000f\u0010\u0003"+
+		"\u0002\u0001\u0000\u0010\u0011\u0005\b\u0000\u0000\u0011\u0001\u0001\u0000"+
+		"\u0000\u0000\u0012\u0014\u0003\u0004\u0002\u0000\u0013\u0012\u0001\u0000"+
+		"\u0000\u0000\u0014\u0017\u0001\u0000\u0000\u0000\u0015\u0013\u0001\u0000"+
+		"\u0000\u0000\u0015\u0016\u0001\u0000\u0000\u0000\u0016\u0003\u0001\u0000"+
+		"\u0000\u0000\u0017\u0015\u0001\u0000\u0000\u0000\u0018\u0019\u0005\u0002"+
+		"\u0000\u0000\u0019\u001a\u0005\u0005\u0000\u0000\u001a\u001b\u0005\u0007"+
+		"\u0000\u0000\u001b\u001c\u0003\u0006\u0003\u0000\u001c\u001d\u0005\b\u0000"+
+		"\u0000\u001d\u0005\u0001\u0000\u0000\u0000\u001e \u0003\b\u0004\u0000"+
+		"\u001f\u001e\u0001\u0000\u0000\u0000 #\u0001\u0000\u0000\u0000!\u001f"+
+		"\u0001\u0000\u0000\u0000!\"\u0001\u0000\u0000\u0000\"\u0007\u0001\u0000"+
+		"\u0000\u0000#!\u0001\u0000\u0000\u0000$%\u0005\u0005\u0000\u0000%&\u0005"+
+		"\t\u0000\u0000&\'\u0003\n\u0005\u0000\'(\u0005\n\u0000\u0000(\t\u0001"+
+		"\u0000\u0000\u0000)*\u0007\u0000\u0000\u0000*\u000b\u0001\u0000\u0000"+
+		"\u0000\u0002\u0015!";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
