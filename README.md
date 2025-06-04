@@ -9,16 +9,10 @@ Este proyecto implementa un analizador léxico, sintáctico y semántico para ar
 ## Instalación:
 1. Clona este repositorio:
    `git clone https://github.com/Ccecilia0/46332.git`
-2. Navega a la carpeta del proyecto (que se llama `ssl-antlr-config` dentro del repositorio clonado):
-   `cd 46332/ssl-antlr-config`
+2. Navega a la carpeta del proyecto:
+   `cd 46332`
 3. Instala las dependencias:
    `npm install`
-
-## Generación de archivos ANTLR (si es necesario regenerar):
-1. Navega a la carpeta del proyecto:
-   `cd ssl-antlr-config`
-2. Ejecuta:
-   `java -jar antlr-4.13.2-complete.jar -Dlanguage=JavaScript -visitor ConfiguracionGrammar.g4 -o generated/grammar`
 
 ## Notas Importantes
 
@@ -26,7 +20,7 @@ Este proyecto implementa un analizador léxico, sintáctico y semántico para ar
 
 ## Ejecución del Analizador:
 
-Para analizar un archivo de entrada, asegúrate de que el contenido deseado esté en el archivo `input.txt` dentro de la carpeta `ssl-antlr-config`. Luego, desde la raíz de la carpeta `ssl-antlr-config`, ejecuta:
+Ejecuta:
 
 `npm start`
 (o `node index.js`)
